@@ -3,7 +3,7 @@
         'name' => 'acjmangodb/acj-mangodb-clone',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '5471060b76ae82f0201073a2c225ffb8bc6a3db7',
+        'reference' => '4fcad42ca3a1bb66ff462314e9ccd389c3cfddbb',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'acjmangodb/acj-mangodb-clone' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '5471060b76ae82f0201073a2c225ffb8bc6a3db7',
+            'reference' => '4fcad42ca3a1bb66ff462314e9ccd389c3cfddbb',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
