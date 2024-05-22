@@ -1,5 +1,5 @@
 {
-  "name": "acj-mangodb-clone",
+  "name": "acj-mongodb-clone",
   "version": "1.0.0",
   "description": "",
   "main": "build/index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Arun Chaitanya Jami/acj-mangodb-clone"
+    "url": "https://github.com/Arun Chaitanya Jami/acj-mongodb-clone"
   },
   "author": "Arun Chaitanya Jami",
   "license": "GPL-2.0+",
   "bugs": {
-    "url": "https://github.com/Arun Chaitanya Jami/acj-mangodb-clone/issues"
+    "url": "https://github.com/Arun Chaitanya Jami/acj-mongodb-clone/issues"
   },
-  "homepage": "https://github.com/Arun Chaitanya Jami/acj-mangodb-clone#readme",
+  "homepage": "https://github.com/Arun Chaitanya Jami/acj-mongodb-clone#readme",
   "devDependencies": {
     "@bigbite/wp-cypress": "^0.13.1",
     "cypress": "13.3.0",
