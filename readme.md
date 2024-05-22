@@ -1,34 +1,41 @@
-# ACJ MANGODB SYNC
+# ACJ MONGODB SYNC
 
 * Contributors:      Arun Chaitanya Jami
 * Tags:              plugin
 * Tested up to:      6.1
-* Stable tag:        1.0.0
+* Stable tag:        1.0.1
 
 
 ## Description
 
-This is the long description. No limit, and you can use Markdown (as well as in the following sections).
+ACJ MONGODB SYNC is a plugin that help you sync data from WordPress to Mongo Db. It completely works in backend and will not break any part of the site while
+users having the smooth WordPress Experience.
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
+### Currently Supports
+- All Options Sync
+- All Terms Sync
+- Any Post Type Sync.
 
 ## Pre-requisites
 
-This plugin required MANGODB package an extension enabled. Please follow the below process.
+This plugin required MONGODB package an extension enabled. Please follow the below process.
 
-##### 1. Install MongoDB PHP Extension
+#### 1. Install MongoDB PHP Extension
 You can install the MongoDB PHP extension using PECL (PHP Extension Community Library). Make sure you have pecl installed on your system. Then, run the following command:
 ```shell
+apt-get update
+
+apt-get install libmongoc-1.0-0
+
 pecl install mongodb
 ```
 Follow the prompts to complete the installation process.
 
-##### 2. Install Required Dependencies
+#### 2. Install Required Dependencies
 
 Make sure you have the necessary SSL libraries installed on your system. On Debian/Ubuntu-based systems, you can install them using:
 ```shell
-sudo apt-get install openssl libssl-dev
+sudo apt-get install -y openssl libssl-dev libcurl4-openssl-dev pkg-config libssl-dev
 ```
 On CentOS/RHEL-based systems, you might need to install `openssl-devel`:
 ```shell
@@ -37,8 +44,17 @@ sudo yum install openssl openssl-devel
 
 #### 3. Enable the MongoDB Extension
 Once the extension is installed, you need to enable it in your PHP configuration. Find your php.ini file (you can locate it by running php --ini in the command line), and add the following line:
+
+To find where php.ini file, use below command.
+
+```shell
+php -i | grep 'php.ini'
+```
+
 ```shell
 extension=mongodb.so
+
+ mongodb.ssl = true
 ```
 
 Make sure to restart your web server (e.g., Apache or Nginx) after making this change for the configuration to take effect.
@@ -63,5 +79,5 @@ This section describes how to install the plugin and get it working.
 
 e.g.
 
-1. Upload the plugin files to the `/wp-content/plugins/acj-mangodb-clone` directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/acj-mongodb-clone` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress
