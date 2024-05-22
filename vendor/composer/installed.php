@@ -1,19 +1,19 @@
 <?php return array(
     'root' => array(
-        'name' => 'acjmangodb/acj-mangodb-clone',
+        'name' => 'acjmongodb/acj-mongodb-clone',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '4fcad42ca3a1bb66ff462314e9ccd389c3cfddbb',
+        'reference' => '449c2e04145064023cbc5871ff0122c38b51e966',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => false,
     ),
     'versions' => array(
-        'acjmangodb/acj-mangodb-clone' => array(
+        'acjmongodb/acj-mongodb-clone' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '4fcad42ca3a1bb66ff462314e9ccd389c3cfddbb',
+            'reference' => '449c2e04145064023cbc5871ff0122c38b51e966',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -34,6 +34,15 @@
             'reference' => 'd20a64ed3c94748397ff5973488761b22f6d3f19',
             'type' => 'composer-plugin',
             'install_path' => __DIR__ . '/./installers',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'erusev/parsedown' => array(
+            'pretty_version' => '1.7.4',
+            'version' => '1.7.4.0',
+            'reference' => 'cb17b6477dfff935958ba01325f2e8a2bfa6dab3',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../erusev/parsedown',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
