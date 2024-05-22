@@ -4,7 +4,7 @@
  * Plugin URI:        https://github.com/iamarunchaitanyajami/acj-mongodb-clone
  * Requires WP:       6.0 ( Minimal )
  * Requires PHP:      8.0
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            Arun Chaitanya Jami
  * Text Domain:       acj-mongodb-clone
  * Domain Path:       /language/
@@ -27,7 +27,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'ACJ_MONGODB_PLUGIN_VERSION', '1.0.1' );
+define( 'ACJ_MONGODB_PLUGIN_VERSION', '1.0.2' );
 define( 'ACJ_MONGODB_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'ACJ_MONGODB_DIR_URL', plugin_dir_url( __FILE__ ) );
 
