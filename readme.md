@@ -1,11 +1,15 @@
 # ACJ MONGODB SYNC
 
 * Contributors:      iamarunchaitanyajami
-* Tags:              plugin
+* Tags:              mongodb, wp mongo db, MongoDb Sync, MongoDb clone, WP MongoDb Clone
 * Stable tag:        1.0.1
 * Requires at least: 4.3
 * Tested up to:      6.5.2
 * Requires PHP:      8.0
+* License: GPLv2 or later 
+* License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+MONGODB SYNC is a plugin that help you sync data from WordPress to Mongo Db
 
 ## Description
 
