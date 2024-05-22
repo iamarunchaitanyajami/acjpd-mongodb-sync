@@ -1,5 +1,5 @@
 {
-  "name": "acj-mongodb-clone",
+  "name": "acj-mongodb-sync",
   "version": "1.0.2",
   "description": "",
   "main": "build/index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Arun Chaitanya Jami/acj-mongodb-clone"
+    "url": "https://github.com/Arun Chaitanya Jami/acj-mongodb-sync"
   },
   "author": "Arun Chaitanya Jami",
   "license": "GPL-2.0+",
   "bugs": {
-    "url": "https://github.com/Arun Chaitanya Jami/acj-mongodb-clone/issues"
+    "url": "https://github.com/Arun Chaitanya Jami/acj-mongodb-sync/issues"
   },
-  "homepage": "https://github.com/Arun Chaitanya Jami/acj-mongodb-clone#readme",
+  "homepage": "https://github.com/Arun Chaitanya Jami/acj-mongodb-sync#readme",
   "devDependencies": {
     "@bigbite/wp-cypress": "^0.13.1",
     "cypress": "13.3.0",
