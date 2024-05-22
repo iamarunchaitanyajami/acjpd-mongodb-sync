@@ -3,7 +3,7 @@
         'name' => 'acjmongodb/acj-mongodb-clone',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'bff7db1f81eba83ef217e802ab5767ac626d0646',
+        'reference' => '7d0cf5216eb5b2d1addbc7764884d57be4988db2',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'acjmongodb/acj-mongodb-clone' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'bff7db1f81eba83ef217e802ab5767ac626d0646',
+            'reference' => '7d0cf5216eb5b2d1addbc7764884d57be4988db2',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
