@@ -47,7 +47,7 @@ class Connector {
 	protected function get_post_collection(): Collection {
 		global $wpdb;
 
-		$db_name = apply_filters( 'acj_mongodb_clone_post_db_name', $wpdb->dbname );
+		$db_name = apply_filters( 'acj_mongodb_clone_db_name', $wpdb->dbname );
 		$mongodb = mongoDbClient( $db_name );
 
 		return $mongodb->selectCollection( $wpdb->posts );
@@ -61,7 +61,7 @@ class Connector {
 	protected function get_post_meta_collection(): Collection {
 		global $wpdb;
 
-		$db_name = apply_filters( 'acj_mongodb_clone_post_meta_db_name', $wpdb->dbname );
+		$db_name = apply_filters( 'acj_mongodb_clone_db_name', $wpdb->dbname );
 		$mongodb = mongoDbClient( $db_name );
 
 		return $mongodb->selectCollection( $wpdb->postmeta );
@@ -75,7 +75,7 @@ class Connector {
 	protected function get_term_collection(): Collection {
 		global $wpdb;
 
-		$db_name = apply_filters( 'acj_mongodb_clone_term_db_name', $wpdb->dbname );
+		$db_name = apply_filters( 'acj_mongodb_clone_db_name', $wpdb->dbname );
 		$mongodb = mongoDbClient( $db_name );
 
 		return $mongodb->selectCollection( $wpdb->terms );
@@ -89,7 +89,7 @@ class Connector {
 	protected function get_term_meta_collection(): Collection {
 		global $wpdb;
 
-		$db_name = apply_filters( 'acj_mongodb_clone_term_meta_db_name', $wpdb->dbname );
+		$db_name = apply_filters( 'acj_mongodb_clone_db_name', $wpdb->dbname );
 		$mongodb = mongoDbClient( $db_name );
 
 		return $mongodb->selectCollection( $wpdb->termmeta );
@@ -103,22 +103,25 @@ class Connector {
 	protected function get_option_collection(): Collection {
 		global $wpdb;
 
-		$db_name = apply_filters( 'acj_mongodb_clone_options_db_name', $wpdb->dbname );
+		$db_name = apply_filters( 'acj_mongodb_clone_db_name', $wpdb->dbname );
 		$mongodb = mongoDbClient( $db_name );
 
 		return $mongodb->selectCollection( $wpdb->options );
 	}
 
 	/**
-	 * Custom db collection.
+	 * Options db collection.
 	 *
-	 * @param string $wpdb_dbname Custom Db name.
+	 * @param string $table_name Table Name.
 	 *
 	 * @return Collection
 	 */
-	public function get_custom_db_collection( string $wpdb_dbname ): Collection {
-		$mongodb = mongoDbClient( $wpdb_dbname );
+	public function get_custom_table_collection( string $table_name ): Collection {
+		global $wpdb;
 
-		return $mongodb->selectCollection( $wpdb_dbname );
+		$db_name = apply_filters( 'acj_mongodb_clone_db_name', $wpdb->dbname );
+		$mongodb = mongoDbClient( $db_name );
+
+		return $mongodb->selectCollection( $table_name );
 	}
 }
