@@ -2,7 +2,7 @@
 /**
  * Custom Functions.
  *
- * @package acj-mongodb-clone
+ * @package acj-mongodb-sync
  * @subpackage WordPress
  */
 

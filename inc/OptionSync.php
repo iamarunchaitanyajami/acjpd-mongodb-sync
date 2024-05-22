@@ -2,7 +2,7 @@
 /**
  * All options Sync to Mongodb.
  *
- * @package acj-mongodb-clone
+ * @package acj-mongodb-sync
  * @subpackage WordPress
  */
 

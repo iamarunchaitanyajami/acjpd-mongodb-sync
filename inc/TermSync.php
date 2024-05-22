@@ -2,7 +2,7 @@
 /**
  * Any Term Sync to Mongodb.
  *
- * @package acj-mongodb-clone
+ * @package acj-mongodb-sync
  * @subpackage WordPress
  */
 
@@ -152,9 +152,9 @@ class TermSync extends Connector {
 		/**
 		 * Add flags.
 		 */
-		update_term_meta( $term_id, 'acj_mongodb_clone_is_term_sync', true );
-		update_term_meta( $term_id, 'acj_mongodb_clone_term_last_sync', time() );
-		update_term_meta( $term_id, 'acj_mongodb_clone_post_sync_site_id', $site_id );
+		update_term_meta( $term_id, 'acj_mongodb_sync_is_term_sync', true );
+		update_term_meta( $term_id, 'acj_mongodb_sync_term_last_sync', time() );
+		update_term_meta( $term_id, 'acj_mongodb_sync_post_sync_site_id', $site_id );
 	}
 
 
@@ -180,9 +180,9 @@ class TermSync extends Connector {
 		$site_id                          = get_current_blog_id();
 		$this->terms_delete[ $site_id ][] = $term_id;
 
-		delete_term_meta( $term_id, 'acj_mongodb_clone_is_post_sync' );
-		delete_term_meta( $term_id, 'acj_mongodb_clone_post_last_sync' );
-		delete_term_meta( $term_id, 'acj_mongodb_clone_post_sync_site_id' );
+		delete_term_meta( $term_id, 'acj_mongodb_sync_is_post_sync' );
+		delete_term_meta( $term_id, 'acj_mongodb_sync_post_last_sync' );
+		delete_term_meta( $term_id, 'acj_mongodb_sync_post_sync_site_id' );
 	}
 
 	/**
@@ -213,7 +213,7 @@ class TermSync extends Connector {
 						array( 'upsert' => true )
 					);
 
-					update_post_meta( $mdb_term->term_id, 'acj_mongodb_clone_inserted_id', $term_update->getUpsertedId() );
+					update_post_meta( $mdb_term->term_id, 'acj_mongodb_sync_inserted_id', $term_update->getUpsertedId() );
 				}
 
 				if ( $this->is_multi_blog ) {
