@@ -1,7 +1,7 @@
 # ACJ MONGODB SYNC
 
 * Contributors:      iamarunchaitanyajami
-* Tags:              mongodb, wp mongo db, MongoDb Sync, MongoDb clone, WP MongoDb Clone
+* Tags:              mongodb, wp mongo db, MongoDb Sync, MongoDb Sync, WP MongoDb Sync
 * Stable tag:        1.0.2
 * Requires at least: 4.3
 * Tested up to:      6.5.2
@@ -84,10 +84,13 @@ This section describes how to install the plugin and get it working.
 
 e.g.
 
-1. Upload the plugin files to the `/wp-content/plugins/acj-mongodb-clone` directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/acj-mongodb-sync` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress
 
 ## == Changelog ==
+
+### 1.0.2
+* Update Read.md file.
 
 ### 1.0.1
 * Allows users to select custom post types to sync.
@@ -100,8 +103,8 @@ e.g.
 
 ## == Upgrade Notice ==
 
-### 1.0.2
-* Update Read.md file.
+### 1.0.3
+* Proper naming convention to the project.
 
 ## == Frequently Asked Questions ==
 
