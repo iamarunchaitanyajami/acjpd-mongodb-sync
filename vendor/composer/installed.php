@@ -1,19 +1,19 @@
 <?php return array(
     'root' => array(
-        'name' => 'acjmongodb/acj-mongodb-clone',
+        'name' => 'acjmongodb/acj-mongodb-sync',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '7d0cf5216eb5b2d1addbc7764884d57be4988db2',
+        'reference' => '735ec7b09a420f2cadabbed426a9fd8dc5382e40',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => false,
     ),
     'versions' => array(
-        'acjmongodb/acj-mongodb-clone' => array(
+        'acjmongodb/acj-mongodb-sync' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '7d0cf5216eb5b2d1addbc7764884d57be4988db2',
+            'reference' => '735ec7b09a420f2cadabbed426a9fd8dc5382e40',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
