@@ -2,9 +2,10 @@
 
 * Contributors:      Arun Chaitanya Jami
 * Tags:              plugin
-* Tested up to:      6.1
 * Stable tag:        1.0.1
-
+* Requires at least: 4.3
+* Tested up to:      6.5.2
+* Requires PHP:      8.0
 
 ## Description
 
@@ -81,3 +82,25 @@ e.g.
 
 1. Upload the plugin files to the `/wp-content/plugins/acj-mongodb-clone` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress
+
+## == Changelog ==
+
+### 1.0.1
+* Allows users to select custom post types to sync.
+* Allows users to select custom post status to sync. 
+* Allows users to select custom Terms to sync.
+* Flexibility for developers to push data for custom tables via allowed functions.
+
+### 1.0.0
+* Initial plugin.
+
+## == Upgrade Notice ==
+### 1.0.1
+* Allows users to select custom post types to sync.
+* Allows users to select custom post status to sync.
+* Allows users to select custom Terms to sync.
+* Flexibility for developers to push data for custom tables via allowed functions.
+
+## == Frequently Asked Questions ==
+
+## == Screenshots ==
