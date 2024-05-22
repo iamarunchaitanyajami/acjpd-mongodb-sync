@@ -1,6 +1,6 @@
 # ACJ MONGODB SYNC
 
-* Contributors:      [iamarunchaitanyajami](https://profiles.wordpress.org/iamarunchaitanyajami/)
+* Contributors:      iamarunchaitanyajami
 * Tags:              plugin
 * Stable tag:        1.0.1
 * Requires at least: 4.3
