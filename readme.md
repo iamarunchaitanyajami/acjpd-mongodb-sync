@@ -2,7 +2,7 @@
 
 * Contributors:      iamarunchaitanyajami
 * Tags:              mongodb, wp mongo db, MongoDb Sync, MongoDb clone, WP MongoDb Clone
-* Stable tag:        1.0.1
+* Stable tag:        1.0.2
 * Requires at least: 4.3
 * Tested up to:      6.5.2
 * Requires PHP:      8.0
