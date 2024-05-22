@@ -95,12 +95,20 @@ e.g.
 * Initial plugin.
 
 ## == Upgrade Notice ==
-### 1.0.1
-* Allows users to select custom post types to sync.
-* Allows users to select custom post status to sync.
-* Allows users to select custom Terms to sync.
-* Flexibility for developers to push data for custom tables via allowed functions.
+
+### 1.0.2
+* Update Read.md file.
 
 ## == Frequently Asked Questions ==
 
+* How can we sync custom data and store in MangoDb?
+  * We have custom functions defined to create tables and send data to the tables created
+  * Example : 
+    * ``acj_mongodb_push_data`` will help data to push to custom tables.
+    * ``acj_mongodb_delete_data`` will help data to delete from custom tables.
+
 ## == Screenshots ==
+
+1. Go to Mangodb Settings Screen.
+2. Add MangoDb URI
+3. Select the post type, taxonomy data and Post Status data to sync.
