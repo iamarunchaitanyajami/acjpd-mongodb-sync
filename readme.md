@@ -25,18 +25,7 @@ users having the smooth WordPress Experience.
 
 This plugin required MONGODB package an extension enabled. Please follow the below process.
 
-#### 1. Install MongoDB PHP Extension
-You can install the MongoDB PHP extension using PECL (PHP Extension Community Library). Make sure you have pecl installed on your system. Then, run the following command:
-```shell
-apt-get update
-
-apt-get install libmongoc-1.0-0
-
-pecl install mongodb
-```
-Follow the prompts to complete the installation process.
-
-#### 2. Install Required Dependencies
+#### 1. Install Required Dependencies
 
 Make sure you have the necessary SSL libraries installed on your system. On Debian/Ubuntu-based systems, you can install them using:
 ```shell
@@ -46,6 +35,17 @@ On CentOS/RHEL-based systems, you might need to install `openssl-devel`:
 ```shell
 sudo yum install openssl openssl-devel
 ```
+
+#### 2. Install MongoDB PHP Extension
+You can install the MongoDB PHP extension using PECL (PHP Extension Community Library). Make sure you have pecl installed on your system. Then, run the following command:
+```shell
+apt-get update
+
+apt-get install libmongoc-1.0-0
+
+pecl install mongodb
+```
+Follow the prompts to complete the installation process.
 
 #### 3. Enable the MongoDB Extension
 Once the extension is installed, you need to enable it in your PHP configuration. Find your php.ini file (you can locate it by running php --ini in the command line), and add the following line:
@@ -89,6 +89,12 @@ e.g.
 
 ## == Changelog ==
 
+### 1.0.4
+* Cli commands to sync the untracked posts and terms from the site.
+
+### 1.0.3
+* Bug fix ACTION HOOKS.
+
 ### 1.0.2
 * Update Read.md file.
 
@@ -103,8 +109,8 @@ e.g.
 
 ## == Upgrade Notice ==
 
-### 1.0.3
-* Proper naming convention to the project.
+### 1.0.4
+* Cli commands to sync the untracked posts and terms from the site.
 
 ## == Frequently Asked Questions ==
 
