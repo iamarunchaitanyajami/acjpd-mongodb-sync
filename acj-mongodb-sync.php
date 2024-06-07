@@ -5,7 +5,7 @@
  * Description:       ACJ MongoDB SYNC is a plugin that help you sync data from WordPress to Mongo Db.
  * Requires WP:       6.0 ( Minimal )
  * Requires PHP:      8.0
- * Version:           1.0.3
+ * Version:           1.0.4
  * Author:            Arun Chaitanya Jami
  * Text Domain:       acj-mongodb-sync
  * Domain Path:       /language/
@@ -28,9 +28,11 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'ACJ_MONGODB_PLUGIN_VERSION', '1.0.3' );
+define( 'ACJ_MONGODB_PLUGIN_VERSION', '1.0.4' );
 define( 'ACJ_MONGODB_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'ACJ_MONGODB_DIR_URL', plugin_dir_url( __FILE__ ) );
+define( 'ACJ_MONGODB_PREFIX', 'acj_mongodb_' );
+define( 'ACJ_MONGODB_ENABLE_CRON', false );
 
 /**
  * Composer Autoload file.
@@ -75,6 +77,8 @@ if ( ! extension_loaded( 'mongodb' ) ) {
 	return;
 }
 
+use Acj\Mongodb\Cron\Post;
+use Acj\Mongodb\Cron\Term;
 use MongoDB\Client as MongoDbClient;
 use MongoDB\Database;
 
@@ -242,7 +246,29 @@ function acj_mongodb_add_custom_options( array $options ): array {
 			'type'    => 'checkbox',
 			'choices' => $taxonomy_list,
 		),
+		array(
+			'title'   => __( 'Enable Cron', 'acj-mongodb-sync' ),
+			'id'      => 'cron-sync-enable',
+			'desc'    => 'This Option allows us to enable or disable cron.',
+			'place'   => array(
+				'page' => 'acj-mongodb-sync-options-page',
+				'tab'  => 'wp-settings',
+			),
+			'type'    => 'checkbox',
+			'choices' => array(
+				array(
+					'value' => 1,
+					'label' => 'Enable',
+				),
+			),
+		),
 	);
 
 	return array_merge( $options, $my_options );
 }
+
+/**
+ * Import CLI.
+ */
+( new Post() )->init();
+( new Term() )->init();
