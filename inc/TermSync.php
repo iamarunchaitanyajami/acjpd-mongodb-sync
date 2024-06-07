@@ -157,7 +157,6 @@ class TermSync extends Connector {
 		update_term_meta( $term_id, 'acj_mongodb_sync_post_sync_site_id', $site_id );
 	}
 
-
 	/**
 	 * Remove Term.
 	 *
@@ -213,7 +212,10 @@ class TermSync extends Connector {
 						array( 'upsert' => true )
 					);
 
-					update_post_meta( $mdb_term->term_id, 'acj_mongodb_sync_inserted_id', $term_update->getUpsertedId() );
+					$upserted_id = $term_update->getUpsertedId();
+					if ( ! empty( $upserted_id ) ) {
+						update_term_meta( $mdb_term->term_id, 'acj_mongodb_sync_inserted_id', $upserted_id );
+					}
 				}
 
 				if ( $this->is_multi_blog ) {
@@ -254,7 +256,7 @@ class TermSync extends Connector {
 				foreach ( $terms_meta as $term_meta ) {
 					$post_meta_collection->updateOne(
 						array(
-							'post_id'  => $term_meta['term_id'],
+							'term_id'  => $term_meta['term_id'],
 							'meta_key' => $term_meta['meta_key'],
 						),
 						array( '$set' => $term_meta ),

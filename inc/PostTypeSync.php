@@ -193,7 +193,10 @@ class PostTypeSync extends Connector {
 						array( 'upsert' => true )
 					);
 
-					update_post_meta( $mdb_post->ID, 'acj_mongodb_sync_inserted_id', $update->getUpsertedId() );
+					$upserted_id = $update->getUpsertedId();
+					if ( ! empty( $upserted_id ) ) {
+						update_post_meta( $mdb_post->ID, 'acj_mongodb_sync_inserted_id', $upserted_id );
+					}
 				}
 				if ( $this->is_multi_blog ) {
 					\restore_current_blog();
