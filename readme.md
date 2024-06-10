@@ -2,7 +2,7 @@
 
 * Contributors:      iamarunchaitanyajami
 * Tags:              mongodb, wp mongo db, MongoDb Sync, MongoDb Sync, WP MongoDb Sync
-* Stable tag:        1.0.3
+* Stable tag:        1.0.5
 * Requires at least: 4.3
 * Tested up to:      6.5.2
 * Requires PHP:      8.0
@@ -89,6 +89,9 @@ e.g.
 
 ## == Changelog ==
 
+### 1.0.5
+* Cli increase per page limit.
+
 ### 1.0.4
 * Cli commands to sync the untracked posts and terms from the site.
 
@@ -109,8 +112,8 @@ e.g.
 
 ## == Upgrade Notice ==
 
-### 1.0.4
-* Cli commands to sync the untracked posts and terms from the site.
+### 1.0.5
+* Cli increase per page limit.
 
 ## == Frequently Asked Questions ==
 
