@@ -80,7 +80,7 @@ class Post extends Base {
 		$args = array(
 			'post_type'      => $exclude_post_type,
 			'post_status'    => $exclude_post_status,
-			'posts_per_page' => 1,
+			'posts_per_page' => 100,
 			'meta_query'     => array( //phpcs:ignore
 				'relation' => 'OR',
 				array(
