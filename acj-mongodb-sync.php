@@ -5,7 +5,7 @@
  * Description:       ACJ MongoDB SYNC is a plugin that help you sync data from WordPress to Mongo Db.
  * Requires WP:       6.0 ( Minimal )
  * Requires PHP:      8.0
- * Version:           1.0.4
+ * Version:           1.0.5
  * Author:            Arun Chaitanya Jami
  * Text Domain:       acj-mongodb-sync
  * Domain Path:       /language/
