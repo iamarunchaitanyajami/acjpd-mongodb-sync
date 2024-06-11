@@ -110,6 +110,34 @@ class Connector {
 	}
 
 	/**
+	 * User db collection.
+	 *
+	 * @return Collection
+	 */
+	protected function get_user_collection(): Collection {
+		global $wpdb;
+
+		$db_name = apply_filters( 'acj_mongodb_sync_db_name', $wpdb->dbname );
+		$mongodb = mongoDbClient( $db_name );
+
+		return $mongodb->selectCollection( $wpdb->users ); //phpcs:ignore
+	}
+
+	/**
+	 * User meta db collection.
+	 *
+	 * @return Collection
+	 */
+	protected function get_user_meta_collection(): Collection {
+		global $wpdb;
+
+		$db_name = apply_filters( 'acj_mongodb_sync_db_name', $wpdb->dbname );
+		$mongodb = mongoDbClient( $db_name );
+
+		return $mongodb->selectCollection( $wpdb->usermeta );
+	}
+
+	/**
 	 * Options db collection.
 	 *
 	 * @param string $table_name Table Name.

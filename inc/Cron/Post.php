@@ -104,18 +104,37 @@ class Post extends Base {
 
 		update_option( 'sync_untracked_posts', $data->found_posts );
 
-		$synced_posts = 0;
+		$synced_posts   = 0;
+		$post_type_sync = new PostTypeSync();
 		foreach ( $posts_found as $post_found ) {
 			if ( ! $post_found instanceof \WP_Post ) {
 				continue;
 			}
 
-			$post_type_sync = new PostTypeSync();
-
 			$post_type_sync->sync_post( $post_found->ID, $post_found );
-			add_action( 'shutdown', array( $post_type_sync, 'process_sync' ) );
+
 			++$synced_posts;
 		}
+
+		$posts_ids = wp_list_pluck( $posts_found, 'ID' );
+		if ( ! empty( $posts_ids ) ) {
+			foreach ( $posts_ids as $post_id ) {
+				if ( empty( $post_id ) ) {
+					continue;
+				}
+
+				$posts_meta_list = get_post_meta( $post_id, '', true );
+				if ( empty( $posts_meta_list ) ) {
+					continue;
+				}
+
+				foreach ( $posts_meta_list as $post_meta_key => $post_meta_value ) {
+					$post_type_sync->sync_post_meta( 0, $post_id, $post_meta_key, $post_meta_value );
+				}
+			}
+		}
+
+		add_action( 'shutdown', array( $post_type_sync, 'process_sync' ) );
 
 		update_option( 'sync_untracked_posts', ( $data->found_posts - $synced_posts ) );
 	}
