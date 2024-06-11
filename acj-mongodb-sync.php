@@ -5,7 +5,7 @@
  * Description:       ACJ MongoDB SYNC is a plugin that help you sync data from WordPress to Mongo Db.
  * Requires WP:       6.0 ( Minimal )
  * Requires PHP:      8.0
- * Version:           1.0.5
+ * Version:           1.0.6
  * Author:            Arun Chaitanya Jami
  * Text Domain:       acj-mongodb-sync
  * Domain Path:       /language/
@@ -28,7 +28,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'ACJ_MONGODB_PLUGIN_VERSION', '1.0.4' );
+define( 'ACJ_MONGODB_PLUGIN_VERSION', '1.0.6' );
 define( 'ACJ_MONGODB_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'ACJ_MONGODB_DIR_URL', plugin_dir_url( __FILE__ ) );
 define( 'ACJ_MONGODB_PREFIX', 'acj_mongodb_' );
@@ -79,6 +79,7 @@ if ( ! extension_loaded( 'mongodb' ) ) {
 
 use Acj\Mongodb\Cron\Post;
 use Acj\Mongodb\Cron\Term;
+use Acj\Mongodb\Cron\User;
 use MongoDB\Client as MongoDbClient;
 use MongoDB\Database;
 
@@ -108,6 +109,7 @@ function acj_mongodb_get_client( string $db_name ): \MongoDB\Database|null {
 ( new PostTypeSync() )->init();
 ( new TermSync() )->init();
 ( new OptionSync() )->init();
+( new UserSync() )->init();
 
 /**
  * Change Icon.
@@ -272,3 +274,4 @@ function acj_mongodb_add_custom_options( array $options ): array {
  */
 ( new Post() )->init();
 ( new Term() )->init();
+( new User() )->init();
