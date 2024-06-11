@@ -89,6 +89,10 @@ e.g.
 
 ## == Changelog ==
 
+### 1.0.6
+* Sync Users to Mongodb.
+* Fix: Post meta sync in cron.
+
 ### 1.0.5
 * Cli increase per page limit.
 
@@ -112,8 +116,9 @@ e.g.
 
 ## == Upgrade Notice ==
 
-### 1.0.5
-* Cli increase per page limit.
+### 1.0.6
+* Sync Users to Mongodb.
+* Fix: Post meta sync in cron.
 
 ## == Frequently Asked Questions ==
 
