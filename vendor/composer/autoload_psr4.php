@@ -11,5 +11,5 @@ return array(
     'Psr\\Log\\' => array($vendorDir . '/psr/log/src'),
     'MongoDB\\' => array($vendorDir . '/mongodb/mongodb/src'),
     'Composer\\Installers\\' => array($vendorDir . '/composer/installers/src/Composer/Installers'),
-    'Acj\\Mongodb\\' => array($baseDir . '/inc'),
+    'Acjpd\\Mongodb\\' => array($baseDir . '/inc'),
 );
