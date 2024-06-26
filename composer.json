@@ -1,14 +1,18 @@
 {
-  "name": "acjmongodb/acj-mongodb-sync",
+  "name": "acjpd/acj-mongodb-sync",
   "description": "",
   "type": "wordpress-plugin",
-  "license": "MIT",
+  "license": "GPL-2.0-or-later",
   "minimum-stability": "dev",
   "prefer-stable": true,
   "authors": [
     {
       "name": "arunchaitanyajami",
       "email": "arunchaitanyajami@gmail.com"
+    },
+    {
+      "name": "iamarunchaitanyajami",
+      "email": "iamarunchaitanyajami@gmail.com"
     }
   ],
   "require": {
@@ -78,7 +82,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Acj\\Mongodb\\": "inc/"
+      "Acjpd\\Mongodb\\": "inc/"
     },
     "files": [
       "./inc/functions.php"
@@ -86,7 +90,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Acj\\Mongodb\\Tests\\": "tests/"
+      "Acjpd\\Mongodb\\Tests\\": "tests/"
     }
   },
   "config": {
