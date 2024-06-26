@@ -2,11 +2,11 @@
 /**
  * Any post type Sync to Mongodb.
  *
- * @package acj-mongodb-sync
+ * @package acjpd-mongodb-sync
  * @subpackage WordPress
  */
 
-namespace Acj\Mongodb;
+namespace Acjpd\Mongodb;
 
 /**
  * Class.
@@ -67,12 +67,12 @@ class PostTypeSync extends Connector {
 			return;
 		}
 
-		$exclude_post_type = alch_get_option( 'sync-object-types', array() );
+		$exclude_post_type = alch_get_option( 'acjpd-sync-object-types', array() );
 		if ( ! in_array( $post->post_type, $exclude_post_type, true ) ) {
 			return;
 		}
 
-		$exclude_post_status = alch_get_option( 'sync-object-status', array() );
+		$exclude_post_status = alch_get_option( 'acjpd-sync-object-status', array() );
 		if ( ! in_array( $post->post_status, $exclude_post_status, true ) ) {
 			return;
 		}
@@ -84,9 +84,9 @@ class PostTypeSync extends Connector {
 		/**
 		 * Add flags.
 		 */
-		update_post_meta( $post_id, 'acj_mongodb_sync_is_post_sync', true );
-		update_post_meta( $post_id, 'acj_mongodb_sync_post_last_sync', time() );
-		update_post_meta( $post_id, 'acj_mongodb_sync_post_sync_site_id', $site_id );
+		update_post_meta( $post_id, 'acjpd_mongodb_sync_is_post_sync', true );
+		update_post_meta( $post_id, 'acjpd_mongodb_sync_post_last_sync', time() );
+		update_post_meta( $post_id, 'acjpd_mongodb_sync_post_sync_site_id', $site_id );
 	}
 
 	/**
@@ -102,12 +102,12 @@ class PostTypeSync extends Connector {
 			return;
 		}
 
-		$exclude_post_type = alch_get_option( 'sync-object-types', array() );
+		$exclude_post_type = alch_get_option( 'acjpd-sync-object-types', array() );
 		if ( ! in_array( $post->post_type, $exclude_post_type, true ) ) {
 			return;
 		}
 
-		$exclude_post_status = alch_get_option( 'sync-object-status', array() );
+		$exclude_post_status = alch_get_option( 'acjpd-sync-object-status', array() );
 		if ( ! in_array( $post->post_status, $exclude_post_status, true ) ) {
 			return;
 		}
@@ -115,9 +115,9 @@ class PostTypeSync extends Connector {
 		$site_id                          = get_current_blog_id();
 		$this->posts_delete[ $site_id ][] = $post_id;
 
-		delete_post_meta( $post_id, 'acj_mongodb_sync_is_post_sync' );
-		delete_post_meta( $post_id, 'acj_mongodb_sync_post_last_sync' );
-		delete_post_meta( $post_id, 'acj_mongodb_sync_post_sync_site_id' );
+		delete_post_meta( $post_id, 'acjpd_mongodb_sync_is_post_sync' );
+		delete_post_meta( $post_id, 'acjpd_mongodb_sync_post_last_sync' );
+		delete_post_meta( $post_id, 'acjpd_mongodb_sync_post_sync_site_id' );
 	}
 
 	/**
@@ -195,7 +195,7 @@ class PostTypeSync extends Connector {
 
 					$upserted_id = $update->getUpsertedId();
 					if ( ! empty( $upserted_id ) ) {
-						update_post_meta( $mdb_post->ID, 'acj_mongodb_sync_inserted_id', $upserted_id );
+						update_post_meta( $mdb_post->ID, 'acjpd_mongodb_sync_inserted_id', $upserted_id );
 					}
 				}
 				if ( $this->is_multi_blog ) {

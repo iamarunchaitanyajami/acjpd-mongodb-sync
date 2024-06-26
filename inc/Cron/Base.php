@@ -2,11 +2,11 @@
 /**
  * Register Custom Cron.
  *
- * @package acj-mongodb-sync
+ * @package acjpd-mongodb-sync
  * @sub-package WordPress
  */
 
-namespace Acj\Mongodb\Cron;
+namespace Acjpd\Mongodb\Cron;
 
 /**
  * Class Cron Jobs.
@@ -49,12 +49,12 @@ class Base {
 	 * @return array
 	 */
 	public function add_cron_interval( array $schedules ): array {
-		$schedules[ ACJ_MONGODB_PREFIX . 'import_every_fifteen_minutes' ] = array(
+		$schedules[ ACJPD_MONGODB_PREFIX . 'import_every_fifteen_minutes' ] = array(
 			'interval' => 15 * MINUTE_IN_SECONDS,
-			'display'  => esc_html__( 'ACJ MongoDB SYNC Cron Import: Every Fifteen Minutes', 'acj-mongodb-sync' ),
+			'display'  => esc_html__( 'ACJ MongoDB SYNC Cron Import: Every Fifteen Minutes', 'acjpd-mongodb-sync' ),
 		);
 
-		return apply_filters( ACJ_MONGODB_PREFIX . 'import_cron_schedules', $schedules );
+		return apply_filters( ACJPD_MONGODB_PREFIX . 'import_cron_schedules', $schedules );
 	}
 
 	/**
@@ -63,8 +63,8 @@ class Base {
 	 * @return bool
 	 */
 	protected function is_cron_enabled(): bool {
-		$enable = alch_get_option( 'cron-sync-enable' );
+		$enable = alch_get_option( 'acjpd-cron-sync-enable' );
 
-		return ! empty( $enable ) && isset( $enable[0] ) ? $enable[0] : ACJ_MONGODB_ENABLE_CRON;
+		return ! empty( $enable ) && isset( $enable[0] ) ? $enable[0] : ACJPD_MONGODB_ENABLE_CRON;
 	}
 }

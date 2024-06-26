@@ -2,13 +2,13 @@
 /**
  * All Users Sync to Mongodb.
  *
- * @package    acj-mongodb-sync
+ * @package    acjpd-mongodb-sync
  * @subpackage WordPress
  *
  * @since      1.0.6
  */
 
-namespace Acj\Mongodb;
+namespace Acjpd\Mongodb;
 
 /**
  * User Sync class.
@@ -212,7 +212,7 @@ class UserSync extends Connector {
 
 					$upserted_id = $update->getUpsertedId();
 					if ( ! empty( $upserted_id ) ) {
-						update_user_meta( $mdb_user->ID, 'acj_mongodb_sync_inserted_id', $upserted_id );
+						update_user_meta( $mdb_user->ID, 'acjpd_mongodb_sync_inserted_id', $upserted_id );
 					}
 				}
 

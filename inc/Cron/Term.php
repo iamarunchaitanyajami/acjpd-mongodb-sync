@@ -2,13 +2,13 @@
 /**
  * Register Custom Term sync Cron.
  *
- * @package acj-mongodb-sync
+ * @package acjpd-mongodb-sync
  * @sub-package WordPress
  */
 
-namespace Acj\Mongodb\Cron;
+namespace Acjpd\Mongodb\Cron;
 
-use Acj\Mongodb\TermSync;
+use Acjpd\Mongodb\TermSync;
 
 /**
  * Class Term Cron Jobs.
@@ -33,7 +33,7 @@ class Term extends Base {
 		/**
 		 * Add Hooks.
 		 */
-		$export_post_hook = sprintf( '%s%s', esc_attr( ACJ_MONGODB_PREFIX ), esc_attr( $this->hook_name ) );
+		$export_post_hook = sprintf( '%s%s', esc_attr( ACJPD_MONGODB_PREFIX ), esc_attr( $this->hook_name ) );
 		if ( ! $this->is_cron_enabled() ) {
 			wp_clear_scheduled_hook( $export_post_hook );
 			$crons = _get_cron_array();
@@ -56,7 +56,7 @@ class Term extends Base {
 		/**
 		 * Schedules
 		 */
-		$this->schedule_cron( $export_post_hook, ACJ_MONGODB_PREFIX . 'import_every_fifteen_minutes' );
+		$this->schedule_cron( $export_post_hook, ACJPD_MONGODB_PREFIX . 'import_every_fifteen_minutes' );
 	}
 
 	/**
@@ -76,12 +76,12 @@ class Term extends Base {
 			'meta_query' => array( //phpcs:ignore
 				'relation' => 'OR',
 				array(
-					'key'     => 'acj_mongodb_sync_inserted_id',
+					'key'     => 'acjpd_mongodb_sync_inserted_id',
 					'compare' => 'NOT EXISTS',
 					'value'   => '',
 				),
 				array(
-					'key'     => 'acj_mongodb_sync_inserted_id',
+					'key'     => 'acjpd_mongodb_sync_inserted_id',
 					'value'   => '',
 					'compare' => '=',
 				),
@@ -105,7 +105,7 @@ class Term extends Base {
 	 * @return void
 	 */
 	public function export_terms(): void {
-		$exclude_taxonomies = alch_get_option( 'sync-taxonomy-types', array() );
+		$exclude_taxonomies = alch_get_option( 'acjpd-sync-taxonomy-types', array() );
 		if ( empty( $exclude_taxonomies ) ) {
 			return;
 		}

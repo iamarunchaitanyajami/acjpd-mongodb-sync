@@ -2,11 +2,11 @@
 /**
  * Custom Functions.
  *
- * @package acj-mongodb-sync
+ * @package acjpd-mongodb-sync
  * @subpackage WordPress
  */
 
-namespace Acj\Mongodb;
+namespace Acjpd\Mongodb;
 
 use MongoDB\DeleteResult;
 use MongoDB\UpdateResult;
@@ -21,7 +21,7 @@ use MongoDB\UpdateResult;
  *
  * @return UpdateResult
  */
-function acj_mongodb_push_data( string $mongo_table, string $primary_key, int $primary_value, mixed $data ): \MongoDB\UpdateResult {
+function acjpd_mongodb_push_data( string $mongo_table, string $primary_key, int $primary_value, mixed $data ): \MongoDB\UpdateResult {
 	$collection = ( new Connector() )->get_custom_table_collection( $mongo_table );
 
 	return $collection->updateOne(
@@ -40,7 +40,7 @@ function acj_mongodb_push_data( string $mongo_table, string $primary_key, int $p
  *
  * @return DeleteResult
  */
-function acj_mongodb_delete_data( string $mongo_table, string $primary_key, int $primary_value ): DeleteResult {
+function acjpd_mongodb_delete_data( string $mongo_table, string $primary_key, int $primary_value ): DeleteResult {
 	$collection = ( new Connector() )->get_custom_table_collection( $mongo_table );
 
 	return $collection->deleteOne( array( $primary_key => $primary_value ) );

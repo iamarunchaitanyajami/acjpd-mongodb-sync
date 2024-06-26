@@ -2,13 +2,13 @@
 /**
  * Register Custom Cron.
  *
- * @package acj-mongodb-sync
+ * @package acjpd-mongodb-sync
  * @sub-package WordPress
  */
 
-namespace Acj\Mongodb\Cron;
+namespace Acjpd\Mongodb\Cron;
 
-use Acj\Mongodb\PostTypeSync;
+use Acjpd\Mongodb\PostTypeSync;
 
 /**
  * Class Post Cron Jobs.
@@ -32,7 +32,7 @@ class Post extends Base {
 		/**
 		 * Add Hooks.
 		 */
-		$export_post_hook = sprintf( '%s%s', esc_attr( ACJ_MONGODB_PREFIX ), esc_attr( $this->hook_name ) );
+		$export_post_hook = sprintf( '%s%s', esc_attr( ACJPD_MONGODB_PREFIX ), esc_attr( $this->hook_name ) );
 		if ( ! $this->is_cron_enabled() ) {
 			wp_clear_scheduled_hook( $export_post_hook );
 			$crons = _get_cron_array();
@@ -55,7 +55,7 @@ class Post extends Base {
 		/**
 		 * Schedules
 		 */
-		$this->schedule_cron( $export_post_hook, ACJ_MONGODB_PREFIX . 'import_every_fifteen_minutes' );
+		$this->schedule_cron( $export_post_hook, ACJPD_MONGODB_PREFIX . 'import_every_fifteen_minutes' );
 	}
 
 	/**
@@ -64,12 +64,12 @@ class Post extends Base {
 	 * @return void
 	 */
 	public function export_posts(): void {
-		$exclude_post_type = alch_get_option( 'sync-object-types', array() );
+		$exclude_post_type = alch_get_option( 'acjpd-sync-object-types', array() );
 		if ( empty( $exclude_post_type ) ) {
 			return;
 		}
 
-		$exclude_post_status = alch_get_option( 'sync-object-status', array() );
+		$exclude_post_status = alch_get_option( 'acjpd-sync-object-status', array() );
 		if ( empty( $exclude_post_status ) ) {
 			return;
 		}

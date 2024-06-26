@@ -2,15 +2,15 @@
 /**
  * Register Custom Term sync Cron.
  *
- * @package acj-mongodb-sync
+ * @package acjpd-mongodb-sync
  * @sub-package WordPress
  *
  * @since 1.0.6
  */
 
-namespace Acj\Mongodb\Cron;
+namespace Acjpd\Mongodb\Cron;
 
-use Acj\Mongodb\UserSync;
+use Acjpd\Mongodb\UserSync;
 
 /**
  * Class User Cron Jobs.
@@ -35,7 +35,7 @@ class User extends Base {
 		/**
 		 * Add Hooks.
 		 */
-		$export_post_hook = sprintf( '%s%s', esc_attr( ACJ_MONGODB_PREFIX ), esc_attr( $this->hook_name ) );
+		$export_post_hook = sprintf( '%s%s', esc_attr( ACJPD_MONGODB_PREFIX ), esc_attr( $this->hook_name ) );
 		if ( ! $this->is_cron_enabled() ) {
 			wp_clear_scheduled_hook( $export_post_hook );
 			$crons = _get_cron_array();
@@ -56,9 +56,9 @@ class User extends Base {
 		add_action( $export_post_hook, array( $this, 'export_users' ) );
 
 		/**
-		 * Schedules
+		 * Schedules.
 		 */
-		$this->schedule_cron( $export_post_hook, ACJ_MONGODB_PREFIX . 'import_every_fifteen_minutes' );
+		$this->schedule_cron( $export_post_hook, ACJPD_MONGODB_PREFIX . 'import_every_fifteen_minutes' );
 	}
 
 	/**

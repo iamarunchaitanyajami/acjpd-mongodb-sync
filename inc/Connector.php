@@ -2,14 +2,14 @@
 /**
  * Mongodb Db Collection Settings.
  *
- * @package acj-mongodb-sync
+ * @package acjpd-mongodb-sync
  * @subpackage WordPress
  */
 
-namespace Acj\Mongodb;
+namespace Acjpd\Mongodb;
 
 use MongoDB\Collection;
-use function Acj\Mongodb\acj_mongodb_get_client as mongoDbClient;
+use function Acjpd\Mongodb\acjpd_mongodb_get_client as mongoDbClient;
 
 /**
  * Class.
@@ -28,7 +28,7 @@ class Connector {
 	 * @var array|mixed|string[]|null
 	 */
 	public array $exclude_meta_keys = array(
-		'acj_mongodb_sync_inserted_id',
+		'acjpd_mongodb_sync_inserted_id',
 	);
 
 	/**
@@ -36,7 +36,7 @@ class Connector {
 	 */
 	public function __construct() {
 		$this->is_multi_blog     = is_multisite();
-		$this->exclude_meta_keys = apply_filters( 'acj_mongodb_sync_excluded_meta_keys', $this->exclude_meta_keys );
+		$this->exclude_meta_keys = apply_filters( 'acjpd_mongodb_sync_excluded_meta_keys', $this->exclude_meta_keys );
 	}
 
 	/**
@@ -47,7 +47,7 @@ class Connector {
 	protected function get_post_collection(): Collection {
 		global $wpdb;
 
-		$db_name = apply_filters( 'acj_mongodb_sync_db_name', $wpdb->dbname );
+		$db_name = apply_filters( 'acjpd_mongodb_sync_db_name', $wpdb->dbname );
 		$mongodb = mongoDbClient( $db_name );
 
 		return $mongodb->selectCollection( $wpdb->posts );
@@ -61,7 +61,7 @@ class Connector {
 	protected function get_post_meta_collection(): Collection {
 		global $wpdb;
 
-		$db_name = apply_filters( 'acj_mongodb_sync_db_name', $wpdb->dbname );
+		$db_name = apply_filters( 'acjpd_mongodb_sync_db_name', $wpdb->dbname );
 		$mongodb = mongoDbClient( $db_name );
 
 		return $mongodb->selectCollection( $wpdb->postmeta );
@@ -75,7 +75,7 @@ class Connector {
 	protected function get_term_collection(): Collection {
 		global $wpdb;
 
-		$db_name = apply_filters( 'acj_mongodb_sync_db_name', $wpdb->dbname );
+		$db_name = apply_filters( 'acjpd_mongodb_sync_db_name', $wpdb->dbname );
 		$mongodb = mongoDbClient( $db_name );
 
 		return $mongodb->selectCollection( $wpdb->terms );
@@ -89,7 +89,7 @@ class Connector {
 	protected function get_term_meta_collection(): Collection {
 		global $wpdb;
 
-		$db_name = apply_filters( 'acj_mongodb_sync_db_name', $wpdb->dbname );
+		$db_name = apply_filters( 'acjpd_mongodb_sync_db_name', $wpdb->dbname );
 		$mongodb = mongoDbClient( $db_name );
 
 		return $mongodb->selectCollection( $wpdb->termmeta );
@@ -103,7 +103,7 @@ class Connector {
 	protected function get_option_collection(): Collection {
 		global $wpdb;
 
-		$db_name = apply_filters( 'acj_mongodb_sync_db_name', $wpdb->dbname );
+		$db_name = apply_filters( 'acjpd_mongodb_sync_db_name', $wpdb->dbname );
 		$mongodb = mongoDbClient( $db_name );
 
 		return $mongodb->selectCollection( $wpdb->options );
@@ -117,7 +117,7 @@ class Connector {
 	protected function get_user_collection(): Collection {
 		global $wpdb;
 
-		$db_name = apply_filters( 'acj_mongodb_sync_db_name', $wpdb->dbname );
+		$db_name = apply_filters( 'acjpd_mongodb_sync_db_name', $wpdb->dbname );
 		$mongodb = mongoDbClient( $db_name );
 
 		return $mongodb->selectCollection( $wpdb->users ); //phpcs:ignore
@@ -131,7 +131,7 @@ class Connector {
 	protected function get_user_meta_collection(): Collection {
 		global $wpdb;
 
-		$db_name = apply_filters( 'acj_mongodb_sync_db_name', $wpdb->dbname );
+		$db_name = apply_filters( 'acjpd_mongodb_sync_db_name', $wpdb->dbname );
 		$mongodb = mongoDbClient( $db_name );
 
 		return $mongodb->selectCollection( $wpdb->usermeta );
@@ -147,7 +147,7 @@ class Connector {
 	public function get_custom_table_collection( string $table_name ): Collection {
 		global $wpdb;
 
-		$db_name = apply_filters( 'acj_mongodb_sync_db_name', $wpdb->dbname );
+		$db_name = apply_filters( 'acjpd_mongodb_sync_db_name', $wpdb->dbname );
 		$mongodb = mongoDbClient( $db_name );
 
 		return $mongodb->selectCollection( $table_name );

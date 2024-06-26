@@ -2,11 +2,11 @@
 /**
  * All options Sync to Mongodb.
  *
- * @package acj-mongodb-sync
+ * @package acjpd-mongodb-sync
  * @subpackage WordPress
  */
 
-namespace Acj\Mongodb;
+namespace Acjpd\Mongodb;
 
 /**
  * Options Page fix.

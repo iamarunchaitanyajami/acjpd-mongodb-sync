@@ -2,11 +2,11 @@
 /**
  * Any Term Sync to Mongodb.
  *
- * @package acj-mongodb-sync
+ * @package acjpd-mongodb-sync
  * @subpackage WordPress
  */
 
-namespace Acj\Mongodb;
+namespace Acjpd\Mongodb;
 
 /**
  * Class.
@@ -137,7 +137,7 @@ class TermSync extends Connector {
 			return;
 		}
 
-		$exclude_taxonomies = alch_get_option( 'sync-taxonomy-types', array() );
+		$exclude_taxonomies = alch_get_option( 'acjpd-sync-taxonomy-types', array() );
 		if ( ! in_array( $taxonomy, $exclude_taxonomies, true ) ) {
 			return;
 		}
@@ -152,9 +152,9 @@ class TermSync extends Connector {
 		/**
 		 * Add flags.
 		 */
-		update_term_meta( $term_id, 'acj_mongodb_sync_is_term_sync', true );
-		update_term_meta( $term_id, 'acj_mongodb_sync_term_last_sync', time() );
-		update_term_meta( $term_id, 'acj_mongodb_sync_post_sync_site_id', $site_id );
+		update_term_meta( $term_id, 'acjpd_mongodb_sync_is_term_sync', true );
+		update_term_meta( $term_id, 'acjpd_mongodb_sync_term_last_sync', time() );
+		update_term_meta( $term_id, 'acjpd_mongodb_sync_post_sync_site_id', $site_id );
 	}
 
 	/**
@@ -171,7 +171,7 @@ class TermSync extends Connector {
 			return;
 		}
 
-		$exclude_taxonomies = alch_get_option( 'sync-taxonomy-types', array() );
+		$exclude_taxonomies = alch_get_option( 'acjpd-sync-taxonomy-types', array() );
 		if ( ! in_array( $taxonomy, $exclude_taxonomies, true ) ) {
 			return;
 		}
@@ -179,9 +179,9 @@ class TermSync extends Connector {
 		$site_id                          = get_current_blog_id();
 		$this->terms_delete[ $site_id ][] = $term_id;
 
-		delete_term_meta( $term_id, 'acj_mongodb_sync_is_post_sync' );
-		delete_term_meta( $term_id, 'acj_mongodb_sync_post_last_sync' );
-		delete_term_meta( $term_id, 'acj_mongodb_sync_post_sync_site_id' );
+		delete_term_meta( $term_id, 'acjpd_mongodb_sync_is_post_sync' );
+		delete_term_meta( $term_id, 'acjpd_mongodb_sync_post_last_sync' );
+		delete_term_meta( $term_id, 'acjpd_mongodb_sync_post_sync_site_id' );
 	}
 
 	/**
@@ -214,7 +214,7 @@ class TermSync extends Connector {
 
 					$upserted_id = $term_update->getUpsertedId();
 					if ( ! empty( $upserted_id ) ) {
-						update_term_meta( $mdb_term->term_id, 'acj_mongodb_sync_inserted_id', $upserted_id );
+						update_term_meta( $mdb_term->term_id, 'acjpd_mongodb_sync_inserted_id', $upserted_id );
 					}
 				}
 
