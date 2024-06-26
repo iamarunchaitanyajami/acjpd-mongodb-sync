@@ -2,10 +2,10 @@
 
 * Contributors:      iamarunchaitanyajami
 * Tags:              mongodb, wp mongo db, MongoDb Sync, MongoDb Sync, WP MongoDb Sync
-* Stable tag:        1.0.5
+* Stable tag:        1.1.0
 * Requires at least: 4.3
 * Tested up to:      6.5.2
-* Requires PHP:      8.0
+* Requires PHP:      8.0 & greater
 * License: GPLv2 or later 
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -89,6 +89,11 @@ e.g.
 
 ## == Changelog ==
 
+### 1.1.0
+* Added No GPL-compatible license declared.
+* Fixed/removed Unneeded Folders.
+* More Generic function/class/define/namespace/option names.
+
 ### 1.0.6
 * Sync Users to Mongodb.
 * Fix: Post meta sync in cron.
@@ -116,17 +121,18 @@ e.g.
 
 ## == Upgrade Notice ==
 
-### 1.0.6
-* Sync Users to Mongodb.
-* Fix: Post meta sync in cron.
+### 1.1.0
+* Added No GPL-compatible license declared.
+* Fixed/removed Unneeded Folders.
+* More Generic function/class/define/namespace/option names.
 
 ## == Frequently Asked Questions ==
 
 * How can we sync custom data and store in MangoDb?
   * We have custom functions defined to create tables and send data to the tables created
   * Example : 
-    * ``acj_mongodb_push_data`` will help data to push to custom tables.
-    * ``acj_mongodb_delete_data`` will help data to delete from custom tables.
+    * ``acjpd_mongodb_push_data`` will help data to push to custom tables.
+    * ``acjpd_mongodb_delete_data`` will help data to delete from custom tables.
 
 ## == Screenshots ==
 
