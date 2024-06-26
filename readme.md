@@ -11,6 +11,13 @@
 
 MONGODB SYNC is a plugin that help you sync data from WordPress to Mongo Db
 
+## Requirements
+- Requires PHP: 8.0 & greater
+
+## Contributors
+
+- Contributors: iamarunchaitanyajami
+
 ## Description
 
 ACJ MONGODB SYNC is a plugin that help you sync data from WordPress to Mongo Db. It completely works in backend and will not break any part of the site while
