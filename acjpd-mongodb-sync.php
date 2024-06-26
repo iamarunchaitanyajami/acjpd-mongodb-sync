@@ -55,7 +55,7 @@ add_action(
 	'alch_output_before_options_tabs',
 	function () {
 		if ( ! extension_loaded( 'mongodb' ) ) {
-			echo '<div class="notice error"><p>Please Install <b>MongoDb</b> PHP EXTENSION for this plugin to work. Please Read instruction how to install in READ.MD file of this plugin.</p></div>';
+			echo esc_html__( 'Please Install <b>MongoDb</b> PHP EXTENSION for this plugin to work. Please Read instruction how to install in READ.MD file of this plugin.', 'acjpd-mongodb-sync' );
 		}
 	}
 );
