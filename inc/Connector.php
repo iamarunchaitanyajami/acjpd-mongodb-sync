@@ -2,7 +2,7 @@
 /**
  * Mongodb Db Collection Settings.
  *
- * @package acjpd-mongodb-sync
+ * @package    acjpd-mongodb-sync
  * @subpackage WordPress
  */
 
@@ -151,5 +151,65 @@ class Connector {
 		$mongodb = mongoDbClient( $db_name );
 
 		return $mongodb->selectCollection( $table_name );
+	}
+
+	/**
+	 * Site db collection.
+	 *
+	 * @return Collection
+	 */
+	public function get_site_collection(): Collection {
+		global $wpdb;
+
+		return $this->get_custom_table_collection( $wpdb->site );
+	}
+
+	/**
+	 * Site meta db collection.
+	 *
+	 * @return Collection
+	 */
+	public function get_site_meta_collection(): Collection {
+		global $wpdb;
+
+		return $this->get_custom_table_collection( $wpdb->sitemeta );
+	}
+
+	/**
+	 * Blog db collection.
+	 *
+	 * @return Collection
+	 */
+	public function get_blog_collection(): Collection {
+		global $wpdb;
+
+		return $this->get_custom_table_collection( $wpdb->blogs );
+	}
+
+	/**
+	 * Blog meta db collection.
+	 *
+	 * @return Collection
+	 */
+	public function get_blog_meta_collection(): Collection {
+		global $wpdb;
+
+		return $this->get_custom_table_collection( $wpdb->blogmeta );
+	}
+
+	/**
+	 * Get Mongodb settings.
+	 *
+	 * @param string $key          Options Key.
+	 * @param mixed  $default_args Default value.
+	 *
+	 * @since v1.2.0
+	 *
+	 * @return mixed
+	 */
+	public function get_setting_options( string $key, mixed $default_args ): mixed {
+		$option_key = sprintf( '_alchemy_options_%s', esc_html( $key ) );
+
+		return $this->is_multi_blog ? alch_admin_get_saved_network_option( $option_key, $default_args ) : alch_get_option( $key, $default_args );
 	}
 }

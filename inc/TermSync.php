@@ -137,7 +137,7 @@ class TermSync extends Connector {
 			return;
 		}
 
-		$exclude_taxonomies = alch_get_option( 'acjpd-sync-taxonomy-types', array() );
+		$exclude_taxonomies = $this->get_setting_options( 'acjpd-sync-taxonomy-types', array() );
 		if ( ! in_array( $taxonomy, $exclude_taxonomies, true ) ) {
 			return;
 		}
@@ -171,7 +171,7 @@ class TermSync extends Connector {
 			return;
 		}
 
-		$exclude_taxonomies = alch_get_option( 'acjpd-sync-taxonomy-types', array() );
+		$exclude_taxonomies = $this->get_setting_options( 'acjpd-sync-taxonomy-types', array() );
 		if ( ! in_array( $taxonomy, $exclude_taxonomies, true ) ) {
 			return;
 		}

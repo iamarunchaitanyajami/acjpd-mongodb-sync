@@ -52,6 +52,42 @@ class PostTypeSync extends Connector {
 		add_action( 'shutdown', array( $this, 'process_sync' ) );
 		add_action( 'updated_postmeta', array( $this, 'sync_post_meta' ), 10, 4 );
 		add_action( 'delete_post_meta', array( $this, 'remove_post_meta' ), 10, 3 );
+		add_action( 'attachment_updated', array( $this, 'sync_attachment_updated' ), 10, 2 );
+		add_action( 'add_attachment', array( $this, 'add_attachment' ) );
+		add_action( 'deleted_post', array( $this, 'remove_post' ), 10, 2 );
+	}
+
+	/**
+	 * Sync Attachment to mongodb.
+	 *
+	 * @param int $post_id Post ID.
+	 *
+	 * @return void
+	 */
+	public function add_attachment( int $post_id ): void {
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return;
+		}
+
+		$attachment_object = get_post( $post_id );
+
+		$this->sync_post( $post_id, $attachment_object );
+	}
+
+	/**
+	 * Sync Updated Attachment to mongodb.
+	 *
+	 * @param int      $post_id    Post ID.
+	 * @param \WP_Post $post_after Post object of after attachment.
+	 *
+	 * @return void
+	 */
+	public function sync_attachment_updated( int $post_id, \WP_Post $post_after ): void {
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return;
+		}
+
+		$this->sync_post( $post_id, $post_after );
 	}
 
 	/**
@@ -67,12 +103,12 @@ class PostTypeSync extends Connector {
 			return;
 		}
 
-		$exclude_post_type = alch_get_option( 'acjpd-sync-object-types', array() );
+		$exclude_post_type = $this->get_setting_options( 'acjpd-sync-object-types', array() );
 		if ( ! in_array( $post->post_type, $exclude_post_type, true ) ) {
 			return;
 		}
 
-		$exclude_post_status = alch_get_option( 'acjpd-sync-object-status', array() );
+		$exclude_post_status = $this->get_setting_options( 'acjpd-sync-object-status', array() );
 		if ( ! in_array( $post->post_status, $exclude_post_status, true ) ) {
 			return;
 		}
@@ -102,12 +138,12 @@ class PostTypeSync extends Connector {
 			return;
 		}
 
-		$exclude_post_type = alch_get_option( 'acjpd-sync-object-types', array() );
+		$exclude_post_type = $this->get_setting_options( 'acjpd-sync-object-types', array() );
 		if ( ! in_array( $post->post_type, $exclude_post_type, true ) ) {
 			return;
 		}
 
-		$exclude_post_status = alch_get_option( 'acjpd-sync-object-status', array() );
+		$exclude_post_status = $this->get_setting_options( 'acjpd-sync-object-status', array() );
 		if ( ! in_array( $post->post_status, $exclude_post_status, true ) ) {
 			return;
 		}

@@ -64,12 +64,12 @@ class Post extends Base {
 	 * @return void
 	 */
 	public function export_posts(): void {
-		$exclude_post_type = alch_get_option( 'acjpd-sync-object-types', array() );
+		$exclude_post_type = $this->get_setting_options( 'acjpd-sync-object-types', array() );
 		if ( empty( $exclude_post_type ) ) {
 			return;
 		}
 
-		$exclude_post_status = alch_get_option( 'acjpd-sync-object-status', array() );
+		$exclude_post_status = $this->get_setting_options( 'acjpd-sync-object-status', array() );
 		if ( empty( $exclude_post_status ) ) {
 			return;
 		}

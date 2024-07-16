@@ -105,7 +105,7 @@ class Term extends Base {
 	 * @return void
 	 */
 	public function export_terms(): void {
-		$exclude_taxonomies = alch_get_option( 'acjpd-sync-taxonomy-types', array() );
+		$exclude_taxonomies = $this->get_setting_options( 'acjpd-sync-taxonomy-types', array() );
 		if ( empty( $exclude_taxonomies ) ) {
 			return;
 		}

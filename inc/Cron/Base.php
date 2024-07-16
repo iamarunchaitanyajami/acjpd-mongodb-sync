@@ -2,7 +2,7 @@
 /**
  * Register Custom Cron.
  *
- * @package acjpd-mongodb-sync
+ * @package     acjpd-mongodb-sync
  * @sub-package WordPress
  */
 
@@ -29,9 +29,9 @@ class Base {
 	/**
 	 * Schedule cron.
 	 *
-	 * @param string $hook_name Hook name.
+	 * @param string $hook_name  Hook name.
 	 * @param string $recurrence Time period.
-	 * @param array  $args Arguments.
+	 * @param array  $args       Arguments.
 	 *
 	 * @return void
 	 */
@@ -63,8 +63,24 @@ class Base {
 	 * @return bool
 	 */
 	protected function is_cron_enabled(): bool {
-		$enable = alch_get_option( 'acjpd-cron-sync-enable' );
+		$enable = $this->get_setting_options( 'acjpd-cron-sync-enable', array() );
 
 		return ! empty( $enable ) && isset( $enable[0] ) ? $enable[0] : ACJPD_MONGODB_ENABLE_CRON;
+	}
+
+	/**
+	 * Get Mongodb settings.
+	 *
+	 * @param string $key          Options Key.
+	 * @param mixed  $default_args Default value.
+	 *
+	 * @since v1.2.0
+	 *
+	 * @return mixed
+	 */
+	public function get_setting_options( string $key, mixed $default_args ): mixed {
+		$option_key = sprintf( '_alchemy_options_%s', esc_html( $key ) );
+
+		return is_multisite() ? alch_admin_get_saved_network_option( $option_key, $default_args ) : alch_get_option( $key, $default_args );
 	}
 }
