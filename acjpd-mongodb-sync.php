@@ -5,7 +5,7 @@
  * Description:       ACJ MongoDB SYNC is a plugin that help you sync data from WordPress to Mongo Db.
  * Requires WP:       6.0 ( Minimal )
  * Requires PHP:      8.0
- * Version:           1.1.0
+ * Version:           1.2.0
  * Author:            Arun Chaitanya Jami
  * Text Domain:       acjpd-mongodb-sync
  * Domain Path:       /language/
@@ -30,7 +30,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'ACJPD_MONGODB_PLUGIN_VERSION', '1.1.0' );
+define( 'ACJPD_MONGODB_PLUGIN_VERSION', '1.2.0' );
 define( 'ACJPD_MONGODB_DIR_PATH', plugin_dir_path( __FILE__ ) );
 define( 'ACJPD_MONGODB_DIR_URL', plugin_dir_url( __FILE__ ) );
 define( 'ACJPD_MONGODB_PREFIX', 'acjpd_mongodb_' );
@@ -48,8 +48,13 @@ if ( ! function_exists( 'alch_get_option' ) ) {
 }
 
 add_filter( 'alch_acjpd-mongodb-sync-options-page_icon', __NAMESPACE__ . '\\acjpd_mongodb_change_my_options_page_icon' );
-add_filter( 'alch_options', __NAMESPACE__ . '\\acjpd_mongodb_add_custom_options' );
-add_filter( 'alch_options_pages', __NAMESPACE__ . '\\acjpd_mongodb_add_custom_options_pages' );
+if ( is_multisite() ) {
+	add_action( 'alch_network_options', __NAMESPACE__ . '\\acjpd_mongodb_add_custom_options' );
+	add_filter( 'alch_network_options_pages', __NAMESPACE__ . '\\acjpd_mongodb_add_custom_options_pages' );
+} else {
+	add_filter( 'alch_options', __NAMESPACE__ . '\\acjpd_mongodb_add_custom_options' );
+	add_filter( 'alch_options_pages', __NAMESPACE__ . '\\acjpd_mongodb_add_custom_options_pages' );
+}
 
 add_action(
 	'alch_output_before_options_tabs',
@@ -70,7 +75,7 @@ add_action(
 	}
 );
 
-$uri = alch_get_option( 'acjpd-mongodb-connection-uri', '' );
+$uri = is_multisite() ? alch_admin_get_saved_network_option( '_alchemy_options_acjpd-mongodb-connection-uri', '' ) : alch_get_option( 'acjpd-mongodb-connection-uri', '' );
 if ( empty( $uri ) ) {
 	return;
 }
@@ -113,6 +118,7 @@ function acjpd_mongodb_get_client( string $db_name ): \MongoDB\Database|null {
 ( new TermSync() )->init();
 ( new OptionSync() )->init();
 ( new UserSync() )->init();
+( new SiteSync() )->init();
 
 /**
  * Change Icon.
