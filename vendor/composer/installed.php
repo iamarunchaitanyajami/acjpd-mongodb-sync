@@ -3,7 +3,7 @@
         'name' => 'acjpd/acj-mongodb-sync',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '8bc206dc7d24ab5536aaa3f9adb4166092f41f9f',
+        'reference' => 'bfb939dbf483fe457ed66019a6d7355ec537869b',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'acjpd/acj-mongodb-sync' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '8bc206dc7d24ab5536aaa3f9adb4166092f41f9f',
+            'reference' => 'bfb939dbf483fe457ed66019a6d7355ec537869b',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
