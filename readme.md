@@ -1,7 +1,7 @@
 # ACJ MONGODB SYNC
 
 * Contributors:      iamarunchaitanyajami
-* Tags:              mongodb, wp mongo db, MongoDb Sync, MongoDb Sync, WP MongoDb Sync
+* Tags:              mongodb, wp mongodb, MongoDb Sync, MongoDb Clone, WP MongoDb Sync, mongodb
 * Stable tag:        1.1.0
 * Requires at least: 4.3
 * Tested up to:      6.5.2
@@ -27,6 +27,7 @@ users having the smooth WordPress Experience.
 - All Options Sync
 - All Terms Sync
 - Any Post Type Sync.
+- All Users.
 
 ## Pre-requisites
 
@@ -35,23 +36,25 @@ This plugin required MONGODB package an extension enabled. Please follow the bel
 #### 1. Install Required Dependencies
 
 Make sure you have the necessary SSL libraries installed on your system. On Debian/Ubuntu-based systems, you can install them using:
-```shell
+```
 sudo apt-get install -y openssl libssl-dev libcurl4-openssl-dev pkg-config libssl-dev
 ```
 On CentOS/RHEL-based systems, you might need to install `openssl-devel`:
-```shell
+```
 sudo yum install openssl openssl-devel
 ```
 
 #### 2. Install MongoDB PHP Extension
 You can install the MongoDB PHP extension using PECL (PHP Extension Community Library). Make sure you have pecl installed on your system. Then, run the following command:
-```shell
+
+```
 apt-get update
 
 apt-get install libmongoc-1.0-0
 
 pecl install mongodb
 ```
+
 Follow the prompts to complete the installation process.
 
 #### 3. Enable the MongoDB Extension
@@ -59,23 +62,26 @@ Once the extension is installed, you need to enable it in your PHP configuration
 
 To find where php.ini file, use below command.
 
-```shell
+```
 php -i | grep 'php.ini'
 ```
 
-```shell
-extension=mongodb.so
+Then add below code
 
- mongodb.ssl = true
+```
+extension=mongodb.so
+mongodb.ssl = true
 ```
 
 Make sure to restart your web server (e.g., Apache or Nginx) after making this change for the configuration to take effect.
 
 #### 4. Verify Installation
 You can verify that the MongoDB PHP extension is installed and enabled by running the following command in your terminal:
-```shell
+
+```
 php -m | grep mongodb
 ```
+
 If the MongoDB extension is properly installed and enabled, you should see mongodb in the list of enabled modules.
 
 #### 5. Handling Installation Issues
@@ -95,6 +101,12 @@ e.g.
 2. Activate the plugin through the 'Plugins' screen in WordPress
 
 ## == Changelog ==
+
+### 1.2.0
+* Add multisite data sync for blog, site meta.
+* Fixed Attachments not sync issue.
+* Move settings to network admin when used on multisite.
+* Fixed read.md file UI changes.
 
 ### 1.1.0
 * Added No GPL-compatible license declared.
@@ -128,10 +140,11 @@ e.g.
 
 ## == Upgrade Notice ==
 
-### 1.1.0
-* Added No GPL-compatible license declared.
-* Fixed/removed Unneeded Folders.
-* More Generic function/class/define/namespace/option names.
+### 1.2.0
+* Add multisite data sync for blog, site meta. 
+* Fixed Attachments not sync issue.
+* Move settings to network admin when used on multisite.
+* Fixed read.md file UI changes and added more question.
 
 ## == Frequently Asked Questions ==
 
@@ -140,6 +153,12 @@ e.g.
   * Example : 
     * ``acjpd_mongodb_push_data`` will help data to push to custom tables.
     * ``acjpd_mongodb_delete_data`` will help data to delete from custom tables.
+* Will this plugin works for WordPress Multisite?
+  * Yes
+* Will this plugin works for WordPress Single Site?
+  * Yes
+* Will this plugin works for WordPress WooCommerce?
+  * No for now, but we will be extending it in further versions.
 
 ## == Screenshots ==
 
